@@ -1,0 +1,19 @@
+{
+    "name": "ecosystem/activity-log-doctrine",
+    "type": "symfony-bundle",
+    "repositories":[
+        {
+            "type": "vcs",
+            "url": "git@github.com:APK-Gestion-Ecosystem/ecosystem.bundle.activity-log.git"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Ecosystem\\ActivityLogDoctrineBundle\\": "src/"
+        }
+    },
+    "require": {
+        "aws/aws-sdk-php": "^3",
+        "ecosystem/activity-log": "dev-main"
+    }
+}
