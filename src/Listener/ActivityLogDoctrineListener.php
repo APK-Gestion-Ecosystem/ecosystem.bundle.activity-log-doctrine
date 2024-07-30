@@ -16,8 +16,11 @@ class ActivityLogDoctrineListener
     private const UPDATE = 'update';
     private const DELETE = 'delete';
 
-    public function __construct(private ActivityLogService $activityLog, private RequestStack $requestStack)
-    {
+    public function __construct(
+        private ActivityLogService $activityLog,
+        private RequestStack $requestStack,
+        private readonly string $screenName = 'system',
+    ) {
     }
 
     public function postPersist(PostPersistEventArgs $args): void
@@ -130,7 +133,7 @@ class ActivityLogDoctrineListener
             return [
                 'type' => 'system',
                 'id' => 'system',
-                'screen' => 'System'
+                'screen' => $this->screenName
             ];
         }
 
@@ -138,7 +141,7 @@ class ActivityLogDoctrineListener
             return [
                 'type' => 'anonymous',
                 'id' => 'annon',
-                'screen' => 'Anonymous'
+                'screen' => $this->screenName
             ];
         }
 
