@@ -2,7 +2,7 @@
 
 namespace Ecosystem\ActivityLogDoctrineBundle;
 
-use Ecosystem\ActivityLogDoctrineBundle\Service\ActivityLogDoctrineListener;
+use Ecosystem\ActivityLogDoctrineBundle\Listener\ActivityLogDoctrineListener;
 use Symfony\Component\Config\Definition\Configurator\DefinitionConfigurator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
