@@ -17,7 +17,8 @@ class EcosystemActivityLogDoctrineBundle extends AbstractBundle
     ): void {
         $containerConfigurator->import('../config/services.yaml');
 
-        $containerConfigurator->services()->get(ActivityLogDoctrineListener::class)->arg(2, $config['screen_name']);
+        $containerConfigurator->services()->get(ActivityLogDoctrineListener::class)->arg(2, $config['id']);
+        $containerConfigurator->services()->get(ActivityLogDoctrineListener::class)->arg(3, $config['screen_name']);
     }
 
     public function configure(DefinitionConfigurator $definition): void

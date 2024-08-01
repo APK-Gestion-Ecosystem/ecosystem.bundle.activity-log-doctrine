@@ -19,6 +19,7 @@ class ActivityLogDoctrineListener
     public function __construct(
         private ActivityLogService $activityLog,
         private RequestStack $requestStack,
+        private readonly string $id = 'system',
         private readonly string $screenName = 'system',
     ) {
     }
@@ -131,16 +132,16 @@ class ActivityLogDoctrineListener
         $request = $this->requestStack->getCurrentRequest();
         if (!$request instanceof Request) {
             return [
-                'type' => 'system',
-                'id' => 'system',
+                'type' => 'worker',
+                'id' => $this->id,
                 'screen' => $this->screenName
             ];
         }
 
         if (!$request->headers->has('x-ecosys-trigger')) {
             return [
-                'type' => 'anonymous',
-                'id' => 'annon',
+                'type' => 'api',
+                'id' => $this->id,
                 'screen' => $this->screenName
             ];
         }
